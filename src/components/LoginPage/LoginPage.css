@@ -1,0 +1,55 @@
+.loginPageWrapper{
+    height:100vh;
+    width:100vw;
+    background-position:center;
+    background-size:cover;
+}
+.loginHeader{
+    height:30%;
+    color:white;
+    font-size:60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.userLoginInputWrapper{
+    display: flex;
+    justify-content: space-evenly;
+    height:45%;
+}
+
+.userLoginInputWrapper input:focus{
+    outline:none;
+    border-color: inherit;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+.userLoginInputWrapper input{
+    height:30px;
+    width:250px;
+    background: none;
+    border:0;
+    border-bottom:2px solid white;
+    font-size:20px;
+}
+
+.userLoginInputWrapper input::placeholder{
+    color:white;
+}
+.loginButton:hover{
+    cursor: pointer;
+}
+.loginBottomWrapper{
+    color:white;
+    font-size:30px;
+    display: flex;
+    justify-content: center;
+    padding-top:10px;
+}
+.signUpButton{
+    padding-left:15px;
+    color:rgb(252, 252, 15);
+}
+.signUpButton:hover{
+    cursor: pointer;
+}
