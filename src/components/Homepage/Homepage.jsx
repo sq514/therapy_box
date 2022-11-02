@@ -2,6 +2,8 @@ import React, {useEffect, useState} from 'react';
 import './Homepage.css';
 import background from '../../Assets-and-Screens/Assets/Background.png';
 import headerBackground from '../../Assets-and-Screens/Assets/Container.png'
+import axios from 'axios';
+
 
 const api_key='d0a10211ea3d36b0a6423a104782130e'
 const Homepage = () =>{
@@ -10,7 +12,7 @@ const Homepage = () =>{
     function success(position) {
         const latitude  = position.coords.latitude;
         const longitude = position.coords.longitude;
-      fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${api_key}&units=metric`,{method:'GET'})
+/*       fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${api_key}&units=metric`,{method:'GET'})
         .then(response=> response.json())
         .then((data=>{
             setGeolocation({location:data.name,temperature:Math.round(data.main.temp)})
@@ -18,7 +20,7 @@ const Homepage = () =>{
         }))
         .catch((error)=>{
             console.log(error)
-        }) 
+        })  */
     }
 
     function error() {
@@ -32,7 +34,6 @@ const Homepage = () =>{
             navigator.geolocation.getCurrentPosition(success, error);
         }
     })
-
 
     return(
         <div className='homepageWrapper' style={{backgroundImage:`url(${background})`}}>

@@ -36,7 +36,7 @@
 .userLoginInputWrapper input::placeholder{
     color:white;
 }
-.loginButton:hover{
+.loginButton img:hover{
     cursor: pointer;
 }
 .loginBottomWrapper{
@@ -46,10 +46,17 @@
     justify-content: center;
     padding-top:10px;
 }
-.signUpButton{
+.signUpLink{
     padding-left:15px;
     color:rgb(252, 252, 15);
 }
-.signUpButton:hover{
+.signUpLink:hover{
     cursor: pointer;
+}
+a {
+    text-decoration: none;
+    color:yellow;
+  }
+a:hover{
+    border-bottom: 2px solid white;
 }

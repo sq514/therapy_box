@@ -5,6 +5,15 @@ import background from '../../Assets-and-Screens/Assets/Background.png';
 const LoginPage = () =>{
     const [username,setUsername] = useState("")
     const [password,setPassword] = useState("")
+    const loginHandler = () =>{
+        if(username && password){
+        fetch('http://127.0.0.1:5000/api/login',{method:'POST', body:JSON.stringify({username:username,password:password})})
+        }else{
+            alert('need username and password!')
+        }
+    }
+
+
     return(
         <div className='loginPageWrapper' style={{backgroundImage:`url(${background})`}}>
             <div className='loginHeader'>Dev Challenge</div>
@@ -13,11 +22,12 @@ const LoginPage = () =>{
                 <input type='text' placeholder = 'Password' value={password} onChange={(e)=>setPassword(e.target.value)}/>
             </div>
             <div className='loginButton'>
-                <img src='../../Assets-and-Screens/Assets/Login_button.png' style={{width:"13%",height:"13%"}}/>
+                <img src='../../Assets-and-Screens/Assets/Login_button.png' style={{width:"13%",height:"13%"}}
+                onClick={loginHandler}/>
             </div>
             <div className='loginBottomWrapper'>
                 <div>New to the challenge?</div>
-                <div className='signUpButton'>Sign Up</div>
+                <div className='signUpLink'><a href='/signup' >Sign Up</a></div>
                 
             </div>
         </div>
