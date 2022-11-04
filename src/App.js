@@ -1,4 +1,4 @@
-
+import {useState} from 'react';
 import './App.css';
 import Homepage from './components/Homepage/Homepage';
 import LoginPage from './components/LoginPage/LoginPage'
@@ -9,13 +9,14 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-function App() {
+const App = () =>{
+  const [user,setUser] = useState('')
   return (
     <Router>
       <div className="App">
           <Routes>
-              <Route path="/" element={<Homepage/>}/>
-              <Route path="/login" element={<LoginPage/>}/>
+              <Route path="/" element={<Homepage user={user}/>}/>
+              <Route path="/login" element={<LoginPage user={user} setUser={setUser}/>} />
               <Route path="/signup" element={<SignUpPage/>}/>
           </Routes>
       </div>

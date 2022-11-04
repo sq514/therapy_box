@@ -1,13 +1,27 @@
 import React, {useEffect, useState} from 'react';
 import './LoginPage.css';
 import background from '../../Assets-and-Screens/Assets/Background.png';
-
-const LoginPage = () =>{
+import {useNavigate} from "react-router-dom";
+const LoginPage = ({user,setUser}) =>{
     const [username,setUsername] = useState("")
     const [password,setPassword] = useState("")
+    console.log(user,setUser)
+    const navigate = useNavigate()
+
     const loginHandler = () =>{
         if(username && password){
         fetch('http://127.0.0.1:5000/api/login',{method:'POST', body:JSON.stringify({username:username,password:password})})
+        .then(res=>{
+            if(res.ok){
+                alert('login success')
+                setUser(username)
+                //change up 
+                navigate("/")
+            }
+            else{
+                alert('login failed')
+            }
+        }).catch(err => {console.log(err)})
         }else{
             alert('need username and password!')
         }
@@ -19,7 +33,7 @@ const LoginPage = () =>{
             <div className='loginHeader'>Dev Challenge</div>
             <div className='userLoginInputWrapper'>
                 <input type='text' placeholder = 'Username' value={username} onChange={(e)=>setUsername(e.target.value)}/>
-                <input type='text' placeholder = 'Password' value={password} onChange={(e)=>setPassword(e.target.value)}/>
+                <input type='password' placeholder = 'Password' value={password} onChange={(e)=>setPassword(e.target.value)}/>
             </div>
             <div className='loginButton'>
                 <img src='../../Assets-and-Screens/Assets/Login_button.png' style={{width:"13%",height:"13%"}}

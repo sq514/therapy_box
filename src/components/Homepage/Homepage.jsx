@@ -3,21 +3,30 @@ import './Homepage.css';
 import background from '../../Assets-and-Screens/Assets/Background.png';
 import headerBackground from '../../Assets-and-Screens/Assets/Container.png'
 import axios from 'axios';
-
+import {useNavigate} from "react-router-dom";
 
 const api_key='d0a10211ea3d36b0a6423a104782130e'
-const Homepage = () =>{
+
+const Homepage = ({user}) =>{
     const[geolocation,setGeolocation]=useState({location:'none',temperature:0})
+    const navigate = useNavigate()
+    useEffect(() => {
+        if(user===''){
+            console.log(user,'1')
+            navigate('/login')
+        }
+    }, [user])
 
     function success(position) {
+        
         const latitude  = position.coords.latitude;
         const longitude = position.coords.longitude;
 /*       fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${api_key}&units=metric`,{method:'GET'})
         .then(response=> response.json())
-        .then((data=>{
+        .then(data=>{
             setGeolocation({location:data.name,temperature:Math.round(data.main.temp)})
             
-        }))
+        })
         .catch((error)=>{
             console.log(error)
         })  */
@@ -37,7 +46,7 @@ const Homepage = () =>{
 
     return(
         <div className='homepageWrapper' style={{backgroundImage:`url(${background})`}}>
-            <div className='homepageHeader'>Good Day Swapnil</div>
+            <div className='homepageHeader'>Good Day {user}</div>
             <div className='thumbnail'>
                 <div className='wrapper' style={{backgroundImage:`url(${headerBackground})`}}>
                     <div className='contentHeader'>Weather</div>
