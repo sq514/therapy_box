@@ -1,0 +1,61 @@
+.taskHeader{
+    color:white;
+    font-size:40px;
+    text-align: left;
+    padding:30px 40px;
+    font-weight:500;
+    display: flex;
+    justify-content: space-between;
+}
+.taskHeader a:hover{
+    border: 0;
+}
+.taskListWrapper{
+    height:500px;
+    width:60%;
+    padding-left:20%;
+}
+.taskWrapper{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    
+}
+.taskTitle{
+    width:70%;
+    height:50px;
+    border-bottom:2px solid white;
+    color:white;
+    font-size:25px;
+    display: flex;
+    justify-content: flex-start;
+    align-items:flex-end;
+}
+.addImageWrapper{
+    display: flex;
+    justify-content: flex-start;
+    padding-left:20%;
+}
+.homepageWrapper img:hover{
+    cursor: pointer;
+}
+.taskCheckbox input{
+    height:30px;
+    width:30px;
+}
+.taskCheckbox{
+    padding-left:5px;
+}
+.taskTitle input{
+    border:none;
+    text-decoration: none;
+    background:none;
+    color:white;
+    font-size:30px;
+} 
+.taskTitle input:focus{
+    outline:none;
+    border-color: inherit;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}

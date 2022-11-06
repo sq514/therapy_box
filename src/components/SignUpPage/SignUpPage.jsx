@@ -2,18 +2,29 @@ import React, {useEffect, useState} from 'react';
 import './SignUpPage.css';
 import background from '../../Assets-and-Screens/Assets/Background.png';
 import add_picture_background from '../../Assets-and-Screens/Assets/Add_picture.png';
+import {useNavigate} from "react-router-dom";
+
 const SignUpPage = () =>{
     const [username,setUsername] = useState("")
     const [password,setPassword] = useState("")
     const [email,setEmail] = useState("")
     const [confirmPassword,setConfirmPassword] = useState("")
+    const navigate = useNavigate()
+
     const signUpHandler = () =>{
         if(password!==confirmPassword){
             alert('password and confirm password are not same')
         }else if(!username||!password||!confirmPassword||!email){
             alert('please fill in all field!')
         }else{
-            fetch('http://127.0.0.1:5000/api/signup',{method:'POST', body:JSON.stringify({username:username,password:password,email:email})})
+            fetch('http://ec2-3-8-100-19.eu-west-2.compute.amazonaws.com/api/signup',{method:'POST', body:JSON.stringify({username:username,password:password,email:email})}).then(res=>{
+                if(res.ok){
+                    navigate('/login')
+                }
+                else{
+                    alert('Sign up failed')
+                }
+            })
         }
     }
     return(

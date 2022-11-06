@@ -62,3 +62,30 @@
     font-size:35px;
     font-weight:600;
 }
+.thumbnail a{
+    text-decoration: none;
+    color:black;
+}
+.thumbnail a:hover{
+    border: none;
+}
+.sportContent{
+    color:black;
+    font-size:40px;
+    font-weight:500;
+    padding-top:50px;
+}
+.thumbnailTaskWrapper{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-top:15px;
+}
+.thumbnailTask{
+    width:100px;
+    font-weight: 500;
+    border-bottom:2px solid black;
+    display:flex;
+    justify-items: flex-start;
+    align-items: center;
+}

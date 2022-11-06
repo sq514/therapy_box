@@ -5,12 +5,12 @@ import {useNavigate} from "react-router-dom";
 const LoginPage = ({user,setUser}) =>{
     const [username,setUsername] = useState("")
     const [password,setPassword] = useState("")
-    console.log(user,setUser)
+
     const navigate = useNavigate()
 
     const loginHandler = () =>{
         if(username && password){
-        fetch('http://127.0.0.1:5000/api/login',{method:'POST', body:JSON.stringify({username:username,password:password})})
+        fetch(`http://ec2-3-8-100-19.eu-west-2.compute.amazonaws.com/api/login`,{method:'POST', body:JSON.stringify({username:username,password:password})})
         .then(res=>{
             if(res.ok){
                 alert('login success')
