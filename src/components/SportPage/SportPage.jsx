@@ -43,7 +43,7 @@ const SportPage = ({user}) =>{
     },[team])
 
     useEffect(()=>{
-        fetch(`http://ec2-3-8-100-19.eu-west-2.compute.amazonaws.com/api/getteam?username=${user}`,{method:'GET'})
+        fetch(`https://tw7tqumtl2.execute-api.eu-west-2.amazonaws.com/api/getteam?username=${user}`,{method:'GET'})
         .then(res=>{
             if(res.ok){
                 return res.json()
@@ -54,7 +54,7 @@ const SportPage = ({user}) =>{
         })
     },[user])
     const upsert_team = () =>{
-        fetch('http://ec2-3-8-100-19.eu-west-2.compute.amazonaws.com/api/team',{method:'POST',body:JSON.stringify({username:user,team:team})})
+        fetch('https://tw7tqumtl2.execute-api.eu-west-2.amazonaws.com/api/team',{method:'POST',body:JSON.stringify({username:user,team:team})})
         .then(res=>{
             if(!res.ok){
                 alert('save team failed')

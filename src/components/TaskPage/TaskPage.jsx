@@ -12,7 +12,7 @@ const TaskPage = ({user}) =>{
         }
     }, [user])
     useEffect(()=>{
-        fetch(`http://ec2-3-8-100-19.eu-west-2.compute.amazonaws.com/api/gettask?username=${user}`,{method:'GET'})
+        fetch(`https://tw7tqumtl2.execute-api.eu-west-2.amazonaws.com/api/gettask?username=${user}`,{method:'GET'})
         .then(res=>{
             if(res.ok){
                 return res.json()
@@ -22,11 +22,11 @@ const TaskPage = ({user}) =>{
     },[])
 
     const add_task = ()=>{
-        fetch('http://ec2-3-8-100-19.eu-west-2.compute.amazonaws.com/api/addtask',{method:'POST',body:JSON.stringify({username:user,task:''})})
+        fetch('https://tw7tqumtl2.execute-api.eu-west-2.amazonaws.com/api/addtask',{method:'POST',body:JSON.stringify({username:user,task:''})})
         .then(
             (res) => {
                 if(res.ok){
-                    fetch(`http://ec2-3-8-100-19.eu-west-2.compute.amazonaws.com/api/gettask?username=${user}`,{method:'GET'})
+                    fetch(`https://tw7tqumtl2.execute-api.eu-west-2.amazonaws.com/api/gettask?username=${user}`,{method:'GET'})
                     .then(res=>{
                         if(res.ok){
                             return res.json()
@@ -39,11 +39,11 @@ const TaskPage = ({user}) =>{
     }
 
     const update_task = (taskId, task,status) => {
-        fetch('http://ec2-3-8-100-19.eu-west-2.compute.amazonaws.com/api/updatetask',{method:'POST',body:JSON.stringify({status:status,task:task, taskID:taskId})})
+        fetch('https://tw7tqumtl2.execute-api.eu-west-2.amazonaws.com/api/updatetask',{method:'POST',body:JSON.stringify({status:status,task:task, taskID:taskId})})
         .then(
             (res) => {
                 if(res.ok){
-                    fetch(`http://ec2-3-8-100-19.eu-west-2.compute.amazonaws.com/api/gettask?username=${user}`,{method:'GET'})
+                    fetch(`https://tw7tqumtl2.execute-api.eu-west-2.amazonaws.com/api/gettask?username=${user}`,{method:'GET'})
                     .then(res=>{
                         if(res.ok){
                             return res.json()

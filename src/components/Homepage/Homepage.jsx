@@ -72,7 +72,7 @@ const Homepage = ({user}) =>{
     },[user])
 
     useEffect(()=>{
-        fetch(`http://ec2-3-8-100-19.eu-west-2.compute.amazonaws.com/api/gettask?username=${user}`,{method:'GET'})
+        fetch(`https://tw7tqumtl2.execute-api.eu-west-2.amazonaws.com/api/gettask?username=${user}`,{method:'GET'})
         .then(res=>{
             if(res.ok){
                 return res.json()
@@ -92,7 +92,7 @@ const Homepage = ({user}) =>{
 
 
     useEffect(()=>{
-        fetch(`http://ec2-3-8-100-19.eu-west-2.compute.amazonaws.com/api/getteam?username=${user}`,{method:'GET'})
+        fetch(`https://tw7tqumtl2.execute-api.eu-west-2.amazonaws.com/api/getteam?username=${user}`,{method:'GET'})
         .then(res=>{
             if(res.ok){
                 return res.json()

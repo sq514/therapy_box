@@ -10,7 +10,7 @@ const LoginPage = ({user,setUser}) =>{
 
     const loginHandler = () =>{
         if(username && password){
-        fetch(`http://ec2-3-8-100-19.eu-west-2.compute.amazonaws.com/api/login`,{method:'POST', body:JSON.stringify({username:username,password:password})})
+        fetch(`https://tw7tqumtl2.execute-api.eu-west-2.amazonaws.com/api/login`,{method:'POST', body:JSON.stringify({username:username,password:password})})
         .then(res=>{
             if(res.ok){
                 alert('login success')

@@ -17,7 +17,7 @@ const SignUpPage = () =>{
         }else if(!username||!password||!confirmPassword||!email){
             alert('please fill in all field!')
         }else{
-            fetch('http://ec2-3-8-100-19.eu-west-2.compute.amazonaws.com/api/signup',{method:'POST', body:JSON.stringify({username:username,password:password,email:email})}).then(res=>{
+            fetch('https://tw7tqumtl2.execute-api.eu-west-2.amazonaws.com/api/signup',{method:'POST', body:JSON.stringify({username:username,password:password,email:email})}).then(res=>{
                 if(res.ok){
                     navigate('/login')
                 }
